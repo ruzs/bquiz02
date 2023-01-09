@@ -18,21 +18,21 @@
 	<iframe name="back" style="display:none;"></iframe>
 	<div id="all">
 		<div id="title">
-			<?=date("m月d號 l");?> | 今日瀏覽: 1 | 累積瀏覽: 36 
-			<a href="index.php"style='float:right'>回首頁</a>
+			<?= date("m月d號 l"); ?> | 今日瀏覽: 1 | 累積瀏覽: 36
+			<a href="index.php" style='float:right'>回首頁</a>
 		</div>
 		<div id="title2">
-		<a href="index.php">
-			<img src="./icon/02B01.jpg" alt="健康促進網-回首頁">
-		</a>
+			<a href="index.php">
+				<img src="./icon/02B01.jpg" alt="健康促進網-回首頁">
+			</a>
 		</div>
 		<div id="mm">
 			<div class="hal" id="lef">
+				<a class="blo" href="?do=admin">帳號管理</a>
 				<a class="blo" href="?do=po">分類網誌</a>
-				<a class="blo" href="?do=news">最新文章</a>
-				<a class="blo" href="?do=pop">人氣文章</a>
-				<a class="blo" href="?do=know">講座訊息</a>
-				<a class="blo" href="?do=que">問卷調查</a>
+				<a class="blo" href="?do=news">最新文章管理</a>
+				<a class="blo" href="?do=know">講座管理</a>
+				<a class="blo" href="?do=que">問卷管理</a>
 			</div>
 			<div class="hal" id="main">
 				<div>
@@ -40,17 +40,17 @@
 						請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章
 					</marquee>
 					<span style="width:18%; display:inline-block;">
-					<a href="?do=login">會員登入</a>
+						<a href="?do=login">會員登入</a>
 					</span>
-                    <div class="">
+					<div class="">
 						<?php
-							$do=$_GET['do']??'home';
-							$file="./front/".$do.".php";
-							if(file_exists($file)){
-								include $file;
-							}else{
-								include "./front/home.php";
-							}
+						$do = $_GET['do'] ?? 'home';
+						$file = "./front/" . $do . ".php";
+						if (file_exists($file)) {
+							include $file;
+						} else {
+							include "./front/home.php";
+						}
 
 						?>
 					</div>
@@ -60,7 +60,8 @@
 		<div id="bottom">
 			本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2023健康促進網社群平台 All Right Reserved
 			<br>
-			服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">		</div>
+			服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">
+		</div>
 	</div>
 
 </body>
