@@ -1,5 +1,4 @@
 ﻿<?php include './api/base.php'; ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,11 +20,11 @@
 	<div id="all">
 		<div id="title">
 			<?= date("m月d號 l"); ?> | 今日瀏覽: <?= $Total->find(['date' => date("Y-m-d")])['total']; ?> | 累積瀏覽: <?= $Total->sum('total'); ?>
-			<a href="index.php" style='float:right'>回首頁</a>
+			<a href='index.php' style='float:right'>回首頁</a>
 		</div>
 		<div id="title2">
-			<a href="index.php">
-				<img src="./icon/02B01.jpg" alt="健康促進網-回首頁">
+			<a href='index.php'>
+				<img src="./icon/02B01.jpg" title="健康促進網-回首頁">
 			</a>
 		</div>
 		<div id="mm">
@@ -42,16 +41,35 @@
 						請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章
 					</marquee>
 					<span style="width:18%; display:inline-block;">
-						<a href="?do=login">會員登入</a>
+						<?php
+						if (isset($_SESSION['login'])) {
+							if ($_SESSION['login'] == 'admin') {
+						?>
+								歡迎，<?= $_SESSION['login']; ?>
+								<button><a href='back.php'>管理</a></button>|
+								<button><a href="./api/logout.php">登出</a></button>
+							<?php
+							} else {
+							?>
+								歡迎，<?= $_SESSION['login']; ?>
+								<button><a href="./api/logout.php">登出</a></button>
+							<?php
+							}
+						} else {
+							?>
+							<a href="?do=login">會員登入</a>
+						<?php
+						}
+						?>
 					</span>
 					<div class="">
 						<?php
 						$do = $_GET['do'] ?? 'home';
-						$file = "./front/" . $do . ".php";
+						$file = "./back/" . $do . ".php";
 						if (file_exists($file)) {
 							include $file;
 						} else {
-							include "./front/home.php";
+							include "./back/home.php";
 						}
 
 						?>

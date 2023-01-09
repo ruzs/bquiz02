@@ -35,7 +35,7 @@
       console.log(result);
       if (parseInt(result) === 1) {
         //有此帳號
-        $.post("./api/chk_acc.php", user, (result) => {
+        $.post("./api/chk_pw.php", user, (result) => {
           console.log(result);
           if (parseInt(result) === 1) {
             // 帳密正確
