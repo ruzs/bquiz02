@@ -51,11 +51,14 @@
         $.post("./api/chk_acc.php", user, (result) => {
           if (parseInt(result) === 1) {
             //重覆
-            alert("帳號重覆")
+            alert("帳號重覆");
           } else {
             //不重覆
-            新增帳號
-            alert("註冊完成，歡迎加入")
+            $.post("./api/reg.php",user,()=>{
+              alert("註冊完成，歡迎加入");
+              reset();
+              // location.href = 'index.php?do=login';
+            })
           }
         })
       } else {
