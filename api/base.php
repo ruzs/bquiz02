@@ -4,7 +4,7 @@ date_default_timezone_set("Asia/Taipei");
 
 class DB{
   protected $dsn="mysql:host=localhost;charset=utf8;dbname=db132";
-  protected $table="";
+  protected $table;
   protected $pdo;
   public function __construct($table){
     $this->table=$table;
@@ -114,10 +114,11 @@ function q($sql){
   echo $sql;
   return $pdo->query($sql)->fetchAll();
 }
+
 $Total=new DB('total');
 
 if(!isset($_SESSION['total'])){
-  $today=$Total->find(['data'=>date("Y-m-d")]);
+  $today=$Total->find(['date'=>date("Y-m-d")]);
   if(empty($today)){
     $Total->save(['date'=>date("Y-m-d"),'total'=>1]);
   }else{
