@@ -116,6 +116,7 @@ function q($sql){
 }
 
 $Total=new DB('total');
+$User=new DB('user');
 
 if(!isset($_SESSION['total'])){
   $today=$Total->find(['date'=>date("Y-m-d")]);

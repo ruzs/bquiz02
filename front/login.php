@@ -24,7 +24,6 @@
 <script>
   function reset() {
     $("#acc,#pw").val("");
-    console.log("reset OK");
   }
 
   function login() {
@@ -32,11 +31,13 @@
       acc: $("#acc").val(),
       pw: $("#pw").val()
     }
-    $.post(".api/chk_acc.php", user, (result) => {
-      if (parseInt(result === 1)) {
+    $.post("./api/chk_acc.php", user, (result) => {
+      console.log(result);
+      if (parseInt(result) === 1) {
         //有此帳號
-        $.post(".api/chk_acc.php", user, (result) => {
-          if (parseInt(result === 1)) {
+        $.post("./api/chk_acc.php", user, (result) => {
+          console.log(result);
+          if (parseInt(result) === 1) {
             // 帳密正確
             if (user.acc === "admin") {
               location.href = 'back.php';
@@ -46,11 +47,13 @@
           } else {
             // 密碼錯誤
             alert("密碼錯誤");
+            reset()
           }
         })
       } else {
         //無此帳號
         alert("查無此帳號");
+        reset()
       }
     })
     console.log(user);
