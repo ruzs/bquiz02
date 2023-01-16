@@ -42,7 +42,7 @@
           <div class="short"><?= mb_substr($row['text'], 0, 20); ?>...</div>
           <div class="full">
             <?php
-            echo "<div style='color:skyblue'>" . $row['type'] . "</div>";
+            echo "<h3 style='color:skyblue'>" . $News->type[$row['type']] . "</h3>";
             echo "<div style='color:white'>" . nl2br($row['text']) . "</div>";
             ?>
           </div>
