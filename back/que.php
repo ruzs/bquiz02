@@ -1,5 +1,5 @@
 <fieldset>
-  <legend>新聞問卷</legend>
+  <legend>新增問卷</legend>
   <form action="./api/add_que.php" method="post">
     <div class="subject">
       問卷名稱
