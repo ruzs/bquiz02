@@ -28,7 +28,7 @@
       <td class="news-title"><?=$row['title'];?></td>
       <td>
         <div  class="short"><?=mb_substr($row['text'],0,20);?>...</div>
-        <div  class="full"><?=($row['text']);?></div>
+        <div  class="full"><?=nl2br($row['text']);?></div>
       </td>
       <td></td>
     </tr>
