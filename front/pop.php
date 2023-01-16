@@ -48,7 +48,7 @@
           </div>
         </td>
         <td>
-          <span class="num"><?= $row['good']; ?></span>
+        <span class="num"><?=$Log->count(['news'=>$row['id']]);?></span>
           個人說
           <img src="./icon/02B03.jpg" style="width:20px;height:20px">
           <?php
