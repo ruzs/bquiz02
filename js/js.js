@@ -17,6 +17,7 @@ $(document).ready(() => {
 				$(this).text("讚")
 				$(this).siblings('.num').text(num - 1)
 			}
+		location.reload();
 		})
 	})
 })
