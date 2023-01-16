@@ -47,7 +47,23 @@
             ?>
           </div>
         </td>
-        <td></td>
+        <td>
+          <span class="num"><?= $row['good']; ?></span>
+          個人說
+          <img src="./icon/02B03.jpg" style="width:20px;height:20px">
+          <?php
+          /**
+           * 1.點擊後要紀錄使用者對那一篇文章點了讚或收回讚
+           * 2.點擊後要根據讚或收回讚去改變文章的good欄位
+           */
+          if (isset($_SESSION['login'])) {
+            echo "<a href='#' class='goods' data-user='{$_SESSION['login']}' data-news='{$row['id']}'>";
+            echo "讚";
+            echo "</a>";
+          }
+          ?>
+
+        </td>
       </tr>
     <?php
     }
